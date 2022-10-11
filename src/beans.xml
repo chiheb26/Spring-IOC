@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   
+   <context:annotation-config></context:annotation-config>
+   
+   <bean id="emp" class="com.global.Employee" scope="singleton" init-method="init" destroy-method="cleanUp">
+   	 	
+   		<property name="id" value="20"></property>
+   		<!-- <property name="name" value="test"></property>
+   		<property name="salary" value="1500.2"></property> -->
+   	<!-- 	<property name="department1" ref="dept1"></property>
+   		<property name="department2" ref="dept2"></property>
+   	 -->	
+   		<property name="speciality">
+   			<list>
+	   			<value>Web Design</value>
+	   			<value>Java</value>
+   			</list>
+   		</property>
+   		<property name="address">
+   			<list>
+   				<ref bean="address1"></ref>
+   				<ref bean="address2"></ref>
+   			</list>
+   		</property>
+   	 
+   	 <!--  
+	<constructor-arg value="20" type="Long"></constructor-arg>
+	<constructor-arg value="test" type="String"></constructor-arg>
+	<constructor-arg value="1800.2" type="Double"></constructor-arg>
+	<constructor-arg ref="dept" type="Department"></constructor-arg>
+	<constructor-arg>
+		<list>
+			<value>Web Design</value>
+			<value>Java</value>
+		</list>
+	</constructor-arg>
+	<constructor-arg>
+		<list>
+			<ref bean="address1"></ref>
+			<ref bean="address2"></ref>
+		</list>
+	</constructor-arg>
+	-->   	 
+
+   </bean>
+   
+   <bean id="dept1" class="com.global.Department">
+   		<property name="id" value="1"></property>
+   		<property name="name" value="IT"></property>
+   </bean>
+   
+      <bean id="dept2" class="com.global.Department">
+   		<property name="id" value="2"></property>
+   		<property name="name" value="SEO"></property>
+   </bean>
+   
+   <bean id="address1" class="com.global.Address">
+	   <property name="id" value="1"></property>
+	   <property name="city" value="France"></property>
+   </bean>
+   
+   <bean id="address2" class="com.global.Address">
+	   <property name="id" value="2"></property>
+	   <property name="city" value="Spain"></property>
+	   
+   </bean>
+   
+   <bean id="showBeanLifeCycle" class="com.global.ShowBeanLifeCycle">
+   </bean>   
+
+   </beans>
